@@ -1,0 +1,16 @@
+logging:
+  level:
+    org.springframework.security: INFO
+
+zuul:
+  retryable: true 
+  sensitiveHeaders: Cookie,Set-Cookie
+  routes:
+    ui:
+      path: /ui/**
+      url: http://d5qhxmkf2ngbh.cloudfront.net
+
+eureka:
+  instance:
+      metadataMap:
+        instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
